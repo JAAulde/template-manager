@@ -44,8 +44,8 @@ If you have a template in the DOM like so:
 <script type="text/template" id="hello_world">
 	<p>Hello, World! I'm {name}</p>
 </script>
-_Note the `id` attribute._
 ````
+_Note the `id` attribute._
 You can retrieve it like so:
 ````javascript
 var hello_world_template = template_manager.get('hello_world');
