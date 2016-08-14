@@ -18,7 +18,7 @@
                 return cache[id] || null;
             },
             fetchElement: function (id) {
-                $('#' + id).each(function () {
+                $('[id="' + id + '"]:first').each(function () {
                     template_manager.cache(id, $.trim($(this).text()));
 
                     return false;
