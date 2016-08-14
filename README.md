@@ -46,11 +46,12 @@ If you have a template in the DOM like so:
 </script>
 ````
 _Note the `id` attribute._
+
 You can retrieve it like so:
 ````javascript
 var hello_world_template = template_manager.get('hello_world');
 ````
-_See how the `id` attribute of the DOM node is what we passed to `get()`?
+See how the `id` attribute of the DOM node is what we passed to `get()`?
 
 If you have a template on the server at `/partials/hello_world.html`, you can retrieve it like so:
 ````javascript
