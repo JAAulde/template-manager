@@ -1,0 +1,20 @@
+{
+  "name": "jaaulde-template-manager",
+  "authors": [
+    "Jim Auldridge <auldridgej@gmail.com>"
+  ],
+  "description": "A simple manager for loading and caching templates",
+  "main": "dist/template-manager.js",
+  "license": "MIT",
+  "homepage": "https://github.com/JAAulde/template-manager",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 3"
+  }
+}
