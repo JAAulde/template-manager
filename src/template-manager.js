@@ -42,6 +42,13 @@
         };
 
     context.template_manager = template_manager = {
+        /**
+         * Get a template from the Cache, DOM, or server
+         *
+         * @param  string id the ID or URL of the template
+         *
+         * @return string the tempalate
+         */
         get: function (id) {
             var template = null,
                 methods = [
