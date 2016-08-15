@@ -17,7 +17,7 @@
     'use strict';
 
     /**
-     * IIFE for injecting cookies module into whichever require/scope is in use
+     * IIFE for injecting module into whichever require/scope is in use
      *
      * @param string name The name of module being created
      * @param function definition Function which produces and returns the created module
