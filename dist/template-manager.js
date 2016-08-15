@@ -63,6 +63,13 @@
 
             return template;
         },
+        /**
+         * Inject a template string into the cache by name
+         *
+         * @param  string id The ID you'll use when you want to get the
+         *                   template from the manager
+         * @param  string template The template to cache
+         */
         cache: function (id, template) {
             cache[id] = template;
         }
