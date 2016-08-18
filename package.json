@@ -1,6 +1,6 @@
 {
   "name": "jaaulde-template-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple manager for loading and caching templates",
   "main": "dist/template-manager.js",
   "scripts": {
@@ -12,6 +12,9 @@
   },
   "author": "Jim Auldridge <auldridgej@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "jquery": "1.9.1 - 3"
+  },
   "devDependencies": {
     "del": "^2.2.1",
     "gulp": "^3.9.1",
