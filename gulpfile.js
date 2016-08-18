@@ -37,7 +37,7 @@
     });
 
     gulp.task('watch', function () {
-        gulp.watch('src/**/*.js', ['js']);
+        gulp.watch('src/**/*.js', ['build']);
     });
 
     gulp.task('default', ['build', 'watch']);
