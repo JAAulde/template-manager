@@ -4,51 +4,39 @@
 
     var gulp = require('gulp'),
         del = require('del'),
-        plugins = require('gulp-load-plugins')(),
-        src = 'src/template-manager.js',
-        output_dir = 'dist/';
+        plugins = require('gulp-load-plugins')();
 
     gulp.task('clean', function () {
-        return del([output_dir]);
+        return del(['dist/']);
     });
 
     gulp.task('lint', function () {
-        return gulp.src(src)
+        return gulp.src('src/**/*.js')
             .pipe(plugins.jslint())
             .pipe(plugins.jslint.reporter('default'));
     });
 
-    gulp.task('dist:full', function () {
-        return gulp.src(src)
+    gulp.task('build', ['clean', 'lint'], function () {
+        return gulp.src('src/**/*.js')
             .pipe(plugins.injectVersion({
                 prepend: ''
             }))
-            .pipe(gulp.dest(output_dir))
-    });
-
-    gulp.task('dist:min', ['lint'], function () {
-        return gulp.src(src)
+            .pipe(gulp.dest('dist/'))
             .pipe(plugins.rename({
                 basename: "template-manager.min",
                 extname: ".js"
-            }))
-            .pipe(plugins.injectVersion({
-                prepend: ''
             }))
             .pipe(plugins.uglify({
                 preserveComments: function (node, comment) {
                     return (/@file/m).test(comment.value);
                 }
             }))
-            .pipe(gulp.dest(output_dir))
+            .pipe(gulp.dest('dist/'))
     });
-
-    gulp.task('js', ['dist:full', 'dist:min']);
 
     gulp.task('watch', function () {
-        gulp.watch(src, ['js']);
+        gulp.watch('src/**/*.js', ['js']);
     });
 
-    gulp.task('build', ['clean', 'js']);
     gulp.task('default', ['build', 'watch']);
 }());
