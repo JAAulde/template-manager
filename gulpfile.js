@@ -22,6 +22,7 @@
                 prepend: ''
             }))
             .pipe(gulp.dest('dist/'))
+            .pipe(plugins.sourcemaps.init())
             .pipe(plugins.rename({
                 basename: "template-manager.min",
                 extname: ".js"
@@ -31,6 +32,7 @@
                     return (/@file/m).test(comment.value);
                 }
             }))
+            .pipe(plugins.sourcemaps.write('maps'))
             .pipe(gulp.dest('dist/'))
     });
 
