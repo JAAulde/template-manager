@@ -118,7 +118,7 @@ Running our example Gulp `templates` task in that package would produce the foll
 ````javascript
 (function () {
 	template_manager.cache('templates/hello.html', '<p>Hello, World! I am {name}.</p>');
-}())
+}());
 ````
 
 In your application or webpage, loading `templates.js` _before_ `index.js` attempts to `.get()` that template will ensure it is available in the cache.
