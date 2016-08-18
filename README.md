@@ -80,4 +80,26 @@ template_manager.cache('hello_world', '<script type="text/template" id="hello_wo
 ````
 Later, when you're ready, you can ask for the template via `template_manager.get('hello_world')`.
 
-This may not seem handy, but consider a package that needs templates and is intended for distribution over Bower or NPM. Figuring out where to put templates, and how to reference them from the script, and how to keep file paths and URLs synced up on any number of systems to which the package could be installed is very difficult. By including this package in that package's dependencies, however, the author could simply inject templates into the cache in her code. Even better, the author could write her package with actual HTML files holding each template in her `src`, and have a build file compile those and write lines of JavaScript that inject them into the cache in the `dist` code. Now our `src` is nice and clean, and our `dist` works wherever it is installed.
+### Using with build systems
+The ability to inject things into the cache may not seem all that handy, but consider a JavaScript package that also needs templates, and is intended for distribution over Bower or NPM. Figuring out where to put templates, and how to reference them from the script, and how to keep file paths and URLs synced up on any number of systems to which the package could be installed is very difficult.
+
+By including this package in that package's dependencies, however, the author could simply inject templates into the cache in her code. Even better, the author could write her package with actual HTML files holding each template in her `src`, and have a build file compile those and write lines of JavaScript that inject them into the cache in the `dist` output. Her `src` would be nice and clean, and her `dist` works wherever it is installed!
+
+Here's an example in [GulpJS](http://gulpjs.com) using [gulp-angular-templatecache](https://www.npmjs.com/package/gulp-angular-templatecache). Note that this plugin was intended for use with [AngularJS](https://angularjs.org)' own template caching system for the same purpose, but provides enoug option overrides that, out of the box, it can be used for this package, too.
+````javascript
+gulp.task('templates', function () {
+	return gulp
+            .src('src/**/*.html')
+            .pipe(plugins.htmlmin({
+                collapseWhitespace: true,
+                removeComments: true
+            }))
+            .pipe(plugins.angularTemplatecache({
+                templateHeader: '\n\t',
+                templateBody: 'template_manager.cache(\'<%= url %>\',\'<%= contents %>\');',
+                templateFooter: '\n',
+                moduleSystem: 'iife'
+            }))
+            .pipe(gulp.dest('dist/'));
+});
+````
