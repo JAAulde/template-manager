@@ -3,7 +3,7 @@
 
 /**
  * @file template-manager.js A simple manager for loading and caching templates
- * @version 1.0.3
+ * @version 1.0.4
  * @copyright Jim Auldridge <auldridgej@gmail.com> 2016
  * @license MIT
  * @see {@link https://github.com/JAAulde/template-manager|GitHub Repository}

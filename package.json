@@ -1,6 +1,6 @@
 {
   "name": "jaaulde-template-manager",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple manager for loading and caching templates",
   "main": "dist/template-manager.js",
   "scripts": {
