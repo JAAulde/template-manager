@@ -6,7 +6,8 @@ Get templates by ID/URL from `script` tags in the DOM, or from the server via AJ
 
 _Note that this is *not* a template parsing/rendering engine. It is merely for use in loading and caching templates from various sources._
 
-## installation
+## dependencies
+ * [jquery](https://jquery.com) _1.9.1_ - _3_
 
 ## installation
 ### [bower](http://bower.io)
@@ -20,7 +21,7 @@ npm install jaaulde-template-manager
 ````
 
 ### html
-Download the code, link it in your HTML file.
+Download the code, link it in your HTML file (after [dependencies](#dependencies)).
 ````html
 <script src="/path/to/jaaulde-template-manager.js"></script>
 ````
